@@ -1,14 +1,11 @@
-import express from 'express'
-import next from 'next'
-import cors from 'cors'
-import fs from 'fs'
-import path from 'path'
-import { fileURLToPath } from 'url'
+// server.js
+const express = require('express')
+const next = require('next')
+const cors = require('cors')
+const fs = require('fs')
+const path = require('path')
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
-
-const dev = process.env.NODE_ENV !== 'production'
+const dev = 'production' !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
 

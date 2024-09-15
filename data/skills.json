@@ -1,0 +1,11 @@
+[
+    { "name": "Python", "level": 90 },
+    { "name": "JavaScript", "level": 85 },
+    { "name": "React", "level": 80 },
+    { "name": "Vue.js", "level": 75 },
+    { "name": "SQL", "level": 85 },
+    { "name": "Systems Analysis", "level": 90 },
+    { "name": "Project Management", "level": 80 },
+    { "name": "IT Support", "level": 85 }
+  ]
+  

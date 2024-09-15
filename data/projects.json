@@ -1,0 +1,32 @@
+[
+  {
+    "title": "AstroSurvivor",
+    "description": "A mobile survival action game with auto-shooting mechanics and real-time leaderboards.",
+    "image": "/astro.webp",
+    "link": "#"
+  },
+  {
+    "title": "Critical System Recovery for Traffic Management Center",
+    "description": "Restored the Traffic Management Center (TMC) systems post-breach, ensuring rapid recovery and increased system uptime.",
+    "image": "/tmc.webp",
+    "link": "#"
+  },
+  {
+    "title": "Currently-Watching Plugin",
+    "description": "A Chrome extension for tracking anime series with drag-and-drop functionality and local storage.",
+    "image": "/anime.webp",
+    "link": "https://github.com/BimBimSalaBim/Currently-Watching-plugin-for-animension.to"
+  },
+  {
+    "title": "Runner",
+    "description": "A tool that opens Windows applications using Google Assistant through IFTTT integration.",
+    "image": "/runner.webp",
+    "link": "https://github.com/BimBimSalaBim/Runner"
+  },
+  {
+    "title": "CPU Usage Monitor",
+    "description": "A systray tool that visually monitors CPU usage, changing color based on usage levels.",
+    "image": "/cpu.webp",
+    "link": "https://github.com/BimBimSalaBim/CPU-Usage"
+  }
+]

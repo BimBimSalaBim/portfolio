@@ -5,7 +5,7 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { Button } from "@/components/ui/button"
 import {  Mail, Linkedin, Github, ChevronRight } from "lucide-react"
 import Image from 'next/image';
-
+import { AnimatedBackgroundComponent } from '@/components/animated-background'
 const url = process.env.url || 'http://localhost:3000';
 interface Job {
   title: string;
@@ -76,6 +76,7 @@ export function Page() {
       <title>Faizan Zafar</title>
       
       <header className="relative h-screen flex items-center justify-center overflow-hidden">
+        <AnimatedBackgroundComponent />
         <motion.div 
           className="absolute inset-0 bg-[url('/placeholder.svg?height=1080&width=1920')] bg-cover bg-center"
           style={{
@@ -86,6 +87,7 @@ export function Page() {
         />
         <div className="absolute inset-0 bg-black opacity-50" />
         <div className="relative z-10 text-center">
+          
           <motion.h1 
             className="text-6xl font-bold mb-4"
             initial={{ opacity: 0, y: -50 }}

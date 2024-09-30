@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import {  Mail, Linkedin, Github, ChevronRight } from "lucide-react"
 import Image from 'next/image';
 import { AnimatedBackgroundComponent } from '@/components/animated-background'
-const url = process.env.url || 'http://fzafar.com';
+const url = process.env.url || 'https://fzafar.com';
 interface Job {
   title: string;
   company: string;

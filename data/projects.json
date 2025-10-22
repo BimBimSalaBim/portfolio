@@ -1,32 +1,26 @@
 [
   {
-    "title": "AstroSurvivor",
-    "description": "A mobile survival action game with auto-shooting mechanics and real-time leaderboards.",
-    "image": "/astro.webp",
+    "title": "Azure OpenAI Department Chatbot",
+    "description": "Blazor-based assistant that connects Azure OpenAI with a curated PostgreSQL knowledge base to support Public Works staff.",
+    "image": "/project-chatbot.svg",
     "link": "#"
   },
   {
-    "title": "Critical System Recovery for Traffic Management Center",
-    "description": "Restored the Traffic Management Center (TMC) systems post-breach, ensuring rapid recovery and increased system uptime.",
-    "image": "/tmc.webp",
+    "title": "STAR Service Tickets Platform",
+    "description": "Vue and Electron application delivering real-time ticket syncing between field crews and the Service Tickets and Requests team.",
+    "image": "/project-star.svg",
     "link": "#"
   },
   {
-    "title": "Currently-Watching Plugin",
-    "description": "A Chrome extension for tracking anime series with drag-and-drop functionality and local storage.",
-    "image": "/anime.webp",
-    "link": "https://github.com/BimBimSalaBim/Currently-Watching-plugin-for-animension.to"
+    "title": "Phishing Awareness & Prevention Suite",
+    "description": "Flask and PostgreSQL platform running automated phishing campaigns, replica SSO landing pages, and live reporting dashboards.",
+    "image": "/project-phishing.svg",
+    "link": "#"
   },
   {
-    "title": "Runner",
-    "description": "A tool that opens Windows applications using Google Assistant through IFTTT integration.",
-    "image": "/runner.webp",
-    "link": "https://github.com/BimBimSalaBim/Runner"
-  },
-  {
-    "title": "CPU Usage Monitor",
-    "description": "A systray tool that visually monitors CPU usage, changing color based on usage levels.",
-    "image": "/cpu.webp",
-    "link": "https://github.com/BimBimSalaBim/CPU-Usage"
+    "title": "Legacy Modernization Enhancements",
+    "description": "Extended ColdFusion and .NET systems with new search, forms, and workflow capabilities to improve operations and maintainability.",
+    "image": "/project-modernization.svg",
+    "link": "#"
   }
 ]

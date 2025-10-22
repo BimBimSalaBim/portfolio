@@ -1,21 +1,32 @@
 [
-    {
-      "title": "Lead Developer",
-      "company": "Service Tickets and Requests (STAR)",
-      "period": "2024 - Present",
-      "description": "Led the development of a real-time data synchronization system, improving efficiency by 20%."
-    },
-    {
-      "title": "Professional Worker IT",
-      "company": "Los Angeles County Public Works",
-      "period": "2023 - 2024",
-      "description": "Restored critical systems and deployed 200+ Mac devices, reducing setup times by 30%."
-    },
-    {
-      "title": "Junior Systems Analyst",
-      "company": "Boxed Room LLC",
-      "period": "2019 - 2022",
-      "description": "Conducted systems analysis and design for company-wide technology initiatives."
-    }
-  ]
-  
+  {
+    "title": "Information Systems Analyst II (Application Developer)",
+    "company": "Los Angeles County Public Works",
+    "period": "Feb 2025 - Present",
+    "description": "Deliver and sustain Blazor applications, including an Azure OpenAI chatbot backed by PostgreSQL, to support department operations."
+  },
+  {
+    "title": "Lead Developer",
+    "company": "Service Tickets and Requests (STAR)",
+    "period": "Jun 2024 - Nov 2024",
+    "description": "Architected a Vue and Electron platform with real-time data sync, documented requirements, and onboarded field crews across the county."
+  },
+  {
+    "title": "Professional Worker IT",
+    "company": "Los Angeles County Public Works",
+    "period": "Feb 2023 - Dec 2024",
+    "description": "Partnered with stakeholders through the SDLC, researched commercial software, and supported unit and integration testing for enterprise apps."
+  },
+  {
+    "title": "Lead Software Developer",
+    "company": "CSULB Phishing Awareness & Prevention",
+    "period": "Aug 2023 - Dec 2023",
+    "description": "Built a phishing simulation suite with Flask, PostgreSQL, and Google Cloud, automating campaigns and real-time reporting dashboards."
+  },
+  {
+    "title": "Junior Software Developer",
+    "company": "Boxed Room LLC",
+    "period": "May 2019 - Dec 2022",
+    "description": "Designed full-stack web applications with React, Node.js, and Firebase while coordinating requirements, releases, and QA across clients."
+  }
+]

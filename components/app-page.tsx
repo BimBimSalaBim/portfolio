@@ -3,10 +3,9 @@
 import { useState, useEffect } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { Button } from "@/components/ui/button"
-import {  Mail, Linkedin, Github, ChevronRight } from "lucide-react"
-import Image from 'next/image';
+import { Mail, Linkedin, Github, ChevronRight, FileDown } from "lucide-react"
+import Image from 'next/image'
 import { AnimatedBackgroundComponent } from '@/components/animated-background'
-const url = process.env.url || 'https://fzafar.com';
 interface Job {
   title: string;
   company: string;
@@ -38,22 +37,62 @@ export function Page() {
   const [funFactsData, setFunFactsData] = useState<FunFact[]>([])
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
 
+  const summaryHighlights = [
+    'Deliver enterprise-grade applications end-to-end for Los Angeles County Public Works, from discovery through deployment.',
+    'Build automation and conversational experiences with Blazor, Azure OpenAI, PostgreSQL, and modern DevOps practices.',
+    'Modernize ColdFusion, .NET, and WebForms systems while guiding stakeholders through the full SDLC.'
+  ]
+
+  const focusAreas = [
+    {
+      title: 'Azure OpenAI Chatbot',
+      description: 'Designing a departmental assistant that connects Azure OpenAI with a PostgreSQL knowledge base to surface answers instantly.'
+    },
+    {
+      title: 'STAR Service Tickets',
+      description: 'Led a Vue + Electron platform with real-time data sync, detailed requirement docs, and measured field efficiency gains.'
+    },
+    {
+      title: 'Security Readiness',
+      description: "Developed CSULB's phishing simulation suite with Flask, Google Cloud, and Selenium automation to train thousands of users."
+    }
+  ]
+
+  const currentYear = new Date().getFullYear()
+
   useEffect(() => {
-    fetch(url+'/api/career')
-      .then(res => res.json())
-      .then(data => setCareerData(data))
+    const fetchData = async () => {
+      try {
+        const [
+          careerResponse,
+          skillsResponse,
+          projectsResponse,
+          funFactsResponse
+        ] = await Promise.all([
+          fetch('/api/career'),
+          fetch('/api/skills'),
+          fetch('/api/projects'),
+          fetch('/api/funFacts')
+        ])
 
-    fetch(url+'/api/skills')
-      .then(res => res.json())
-      .then(data => setSkillsData(data))
+        if (careerResponse.ok) {
+          setCareerData(await careerResponse.json())
+        }
+        if (skillsResponse.ok) {
+          setSkillsData(await skillsResponse.json())
+        }
+        if (projectsResponse.ok) {
+          setProjectsData(await projectsResponse.json())
+        }
+        if (funFactsResponse.ok) {
+          setFunFactsData(await funFactsResponse.json())
+        }
+      } catch (error) {
+        console.error('Failed to load portfolio data', error)
+      }
+    }
 
-    fetch(url+'/api/projects')
-      .then(res => res.json())
-      .then(data => setProjectsData(data))
-
-    fetch(url+'/api/funFacts')
-      .then(res => res.json())
-      .then(data => setFunFactsData(data))
+    fetchData()
 
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY })
@@ -102,7 +141,7 @@ export function Page() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Software Engineer | Systems Analyst
+            Information Systems Analyst II (Application Developer)
           </motion.h2>
           <motion.div 
             className="flex justify-center space-x-4"
@@ -110,21 +149,27 @@ export function Page() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <Button variant="outline" size="lg">
-              <a href="mailto:zafarfaizan97@gmail.com" className="flex items-center">
-                <Mail className="mr-2 h-4 w-4" />
+            <Button size="lg" asChild>
+              <a href="/Faizan_Zafar_Resume.pdf" className="flex items-center gap-2" target="_blank" rel="noopener noreferrer">
+                <FileDown className="h-4 w-4" />
+                Download Resume
+              </a>
+            </Button>
+            <Button variant="outline" size="lg" asChild>
+              <a href="mailto:zafarfaizan97@gmail.com" className="flex items-center gap-2">
+                <Mail className="h-4 w-4" />
                 Email Me
               </a>
             </Button>
-            <Button variant="outline" size="lg">
-              <a href="https://www.linkedin.com/in/zafarfaizan" target="_blank" rel="noopener noreferrer" className="flex items-center">
-                <Linkedin className="mr-2 h-4 w-4" />
+            <Button variant="outline" size="lg" asChild>
+              <a href="https://www.linkedin.com/in/zafarfaizan" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                <Linkedin className="h-4 w-4" />
                 LinkedIn
               </a>
             </Button>
-            <Button variant="outline" size="lg">
-              <a href="https://github.com/bimbimsalabim" target="_blank" rel="noopener noreferrer" className="flex items-center">
-                <Github className="mr-2 h-4 w-4" />
+            <Button variant="outline" size="lg" asChild>
+              <a href="https://github.com/bimbimsalabim" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                <Github className="h-4 w-4" />
                 GitHub
               </a>
             </Button>
@@ -141,7 +186,7 @@ export function Page() {
       </header>
 
       <main className="container mx-auto py-16 px-4">
-        {/* Career Journey Section */}
+        {/* Professional Snapshot Section */}
         <section className="mb-24">
           <motion.h2 
             className="text-4xl font-bold mb-12 text-center"
@@ -149,7 +194,62 @@ export function Page() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            Career Journey
+            Professional Snapshot
+          </motion.h2>
+          <div className="grid gap-8 lg:grid-cols-3">
+            <motion.div
+              className="rounded-2xl bg-white/10 p-8 backdrop-blur-lg lg:col-span-2"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <p className="mb-6 text-lg text-teal-100">
+                Software engineer and systems analyst translating complex public sector workflows into resilient, user-friendly applications.
+              </p>
+              <ul className="space-y-3 text-sm sm:text-base">
+                {summaryHighlights.map((item, index) => (
+                  <li key={index} className="flex items-start gap-3">
+                    <span className="mt-2 h-2 w-2 rounded-full bg-teal-300" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+            <motion.div
+              className="flex flex-col gap-4 rounded-2xl bg-white/5 p-8 backdrop-blur-lg"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+            >
+              {focusAreas.map((area, index) => (
+                <div
+                  key={area.title}
+                  className="rounded-xl border border-white/10 bg-black/20 p-4 shadow-lg shadow-black/20"
+                >
+                  <p className="text-xs uppercase tracking-widest text-teal-300">
+                    {String(index + 1).padStart(2, '0')}
+                  </p>
+                  <h3 className="text-xl font-semibold">{area.title}</h3>
+                  <p className="mt-2 text-sm text-teal-100/80">
+                    {area.description}
+                  </p>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Experience Section */}
+        <section className="mb-24">
+          <motion.h2 
+            className="text-4xl font-bold mb-12 text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            Experience Highlights
           </motion.h2>
           <div className="relative">
             {careerData.map((job, index) => (
@@ -177,7 +277,7 @@ export function Page() {
           </div>
         </section>
 
-        {/* Skills Showcase Section */}
+        {/* Skills Section */}
         <section className="mb-24">
           <motion.h2 
             className="text-4xl font-bold mb-12 text-center"
@@ -185,7 +285,7 @@ export function Page() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            Skills Showcase
+            Skills &amp; Tools
           </motion.h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             {skillsData.map((skill, index) => (
@@ -221,7 +321,7 @@ export function Page() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            Project Spotlight
+            Highlighted Projects
           </motion.h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {projectsData.map((project, index) => (
@@ -256,7 +356,7 @@ export function Page() {
           </div>
         </section>
 
-        {/* Fun Facts Section */}
+        {/* Education & Credentials Section */}
         <section className="mb-24">
           <motion.h2 
             className="text-4xl font-bold mb-12 text-center"
@@ -264,21 +364,21 @@ export function Page() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            Fun Facts
+            Education &amp; Credentials
           </motion.h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {funFactsData.map((item, index) => (
               <motion.div
                 key={index}
-                className="bg-white bg-opacity-10 rounded-lg p-6 text-center"
+                className="rounded-lg bg-white/10 p-6 text-left"
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ scale: 1.05 }}
                 viewport={{ once: true }}
               >
-                <div className="text-4xl mb-4">{item.icon}</div>
-                <p className="text-lg">{item.fact}</p>
+                <div className="mb-4 text-4xl">{item.icon}</div>
+                <p className="text-lg leading-relaxed">{item.fact}</p>
               </motion.div>
             ))}
           </div>
@@ -333,7 +433,7 @@ export function Page() {
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
-        <p>&copy; 2024 Faizan Zafar. All rights reserved.</p>
+        <p>&copy; {currentYear} Faizan Zafar. All rights reserved.</p>
       </motion.footer>
     </motion.div>
   )

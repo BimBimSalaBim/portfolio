@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675">
+  <defs>
+    <linearGradient id="gradPhishing" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#22c55e" />
+      <stop offset="100%" stop-color="#0f766e" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#gradPhishing)" />
+  <g fill="none" stroke="#bbf7d0" stroke-width="5" opacity="0.5">
+    <path d="M280 180h280v160H440l-80 120-80-120H280z" />
+    <path d="M720 200h220c40 0 72 32 72 72v40c0 40-32 72-72 72H820l-60 100-60-100h-40c-40 0-72-32-72-72v-40c0-40 32-72 72-72z" />
+  </g>
+  <g fill="#ecfdf5" opacity="0.85">
+    <rect x="320" y="220" width="200" height="60" rx="12" />
+    <rect x="760" y="240" width="220" height="60" rx="12" />
+  </g>
+  <text x="120" y="520" font-family="Arial, Helvetica, sans-serif" font-size="72" fill="#ecfdf5">Phishing Awareness Suite</text>
+  <text x="120" y="580" font-family="Arial, Helvetica, sans-serif" font-size="32" fill="#d1fae5" opacity="0.85">Automated Flask campaigns with live reporting</text>
+</svg>

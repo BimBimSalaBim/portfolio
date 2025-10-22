@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675">
+  <defs>
+    <linearGradient id="gradChatbot" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0ea5e9" />
+      <stop offset="100%" stop-color="#1e40af" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#gradChatbot)" />
+  <g fill="none" stroke="#bae6fd" stroke-width="6" opacity="0.4">
+    <path d="M200 220h340v120h-80l-80 80v-80H200z" />
+    <path d="M660 240h260a70 70 0 0 1 0 140H740l-60 80v-80h-20a70 70 0 0 1 0-140z" />
+  </g>
+  <text x="120" y="520" font-family="Arial, Helvetica, sans-serif" font-size="72" fill="#f8fafc">Azure OpenAI Chatbot</text>
+  <text x="120" y="580" font-family="Arial, Helvetica, sans-serif" font-size="32" fill="#bfdbfe" opacity="0.85">Blazor + PostgreSQL + Azure Cognitive Services</text>
+</svg>

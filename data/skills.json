@@ -1,11 +1,12 @@
 [
-    { "name": "Python", "level": 90 },
-    { "name": "JavaScript", "level": 85 },
-    { "name": "React", "level": 80 },
-    { "name": "Vue.js", "level": 75 },
-    { "name": "SQL", "level": 85 },
-    { "name": "Systems Analysis", "level": 90 },
-    { "name": "Project Management", "level": 80 },
-    { "name": "IT Support", "level": 85 }
-  ]
-  
+  { "name": "Blazor & .NET", "level": 90 },
+  { "name": "React & JavaScript", "level": 88 },
+  { "name": "Flask & Python", "level": 84 },
+  { "name": "SQL & PostgreSQL", "level": 87 },
+  { "name": "Azure OpenAI", "level": 82 },
+  { "name": "ColdFusion & WebForms", "level": 78 },
+  { "name": "Requirements Gathering", "level": 92 },
+  { "name": "Workflow Automation", "level": 85 },
+  { "name": "Testing & QA", "level": 86 },
+  { "name": "IT Support & Troubleshooting", "level": 88 }
+]

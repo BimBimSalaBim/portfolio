@@ -1,9 +1,8 @@
 [
-  { "fact": "Solved 100+ coding challenges on various platforms", "icon": "🧑‍💻" },
-  { "fact": "Created 5 mobile game prototypes, including AstroSurvivor", "icon": "🎮" },
-  { "fact": "Built an AI-powered application to streamline inventory management", "icon": "🛠️" },
-  { "fact": "Won 'Employee of the Month' at Boxed Room LLC", "icon": "🏆" },
-  { "fact": "Led a remote development team across 3 time zones", "icon": "🌍" },
-  { "fact": "Automated the deployment of 200+ Mac devices", "icon": "🔧" }
-  ]
-  
+  { "fact": "B.S. Computer Science - California State University, Long Beach (Dec 2023)", "icon": "EDU" },
+  { "fact": "A.S. Mathematics - Los Angeles Harbor College (Dec 2020)", "icon": "EDU" },
+  { "fact": "A.S. Physics - Los Angeles Harbor College (Dec 2020)", "icon": "EDU" },
+  { "fact": "CompTIA A+ Certification (2021)", "icon": "CERT" },
+  { "fact": "Google Crash Course on Python (2021)", "icon": "CERT" },
+  { "fact": "Lead cross-functional stakeholder workshops to capture requirements and align on SDLC milestones.", "icon": "TEAM" }
+]

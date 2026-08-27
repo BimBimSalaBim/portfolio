@@ -9,6 +9,16 @@ const dev = 'production' !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
 
+// Error tracking (GlitchTip) for the custom server process
+const Sentry = require('@sentry/nextjs')
+if (process.env.SENTRY_DSN) {
+  Sentry.init({
+    dsn: process.env.SENTRY_DSN,
+    tracesSampleRate: 0.05,
+    environment: process.env.NODE_ENV,
+  })
+}
+
 const port = process.env.PORT || 3000
 
 app.prepare().then(() => {
@@ -60,6 +70,9 @@ app.prepare().then(() => {
       res.json({ ok: true, from, to: recipients })
     } catch (err) {
       console.error('Email API error:', err)
+      try {
+        Sentry.captureException(err)
+      } catch (_) { /* tracking must never break the API */ }
       res.status(500).json({ error: 'send failed' })
     }
   })

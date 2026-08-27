@@ -21,8 +21,9 @@ app.prepare().then(() => {
   server.use(express.json())
 
   // Email sending API — POST /api/email
-  // Body: { "to": "a@b.c" | ["a@b.c", ...], "subject": "...", "text"?: "...", "html"?: "..." }
+  // Body: { "to": "a@b.c" | ["a@b.c", ...], "subject": "...", "text"?: "...", "html"?: "...", "from"?: "x@y.z" }
   // Auth: header "x-api-key: <EMAIL_API_KEY>" (env var)
+  // From: caller may pass "from" but only if it's in EMAIL_ALLOWED_FROM (comma-separated env); default EMAIL_FROM
   server.post('/api/email', async (req, res) => {
     try {
       const key = req.headers['x-api-key']
@@ -30,8 +31,13 @@ app.prepare().then(() => {
         return res.status(401).json({ error: 'unauthorized' })
       }
       const { to, subject, text, html } = req.body || {}
+      const from = (req.body && req.body.from) || process.env.EMAIL_FROM || 'admin@fzafar.com'
       if (!to || !subject || (!text && !html)) {
         return res.status(400).json({ error: 'to, subject, and text or html are required' })
+      }
+      const allowed = (process.env.EMAIL_ALLOWED_FROM || '').split(',').map((s) => s.trim()).filter(Boolean)
+      if (allowed.length && !allowed.includes(from)) {
+        return res.status(403).json({ error: 'from address not allowed', allowed })
       }
       const nodemailer = require('nodemailer')
       const transporter = nodemailer.createTransport({
@@ -45,13 +51,13 @@ app.prepare().then(() => {
       })
       const recipients = Array.isArray(to) ? to : to.split(',').map((s) => s.trim())
       await transporter.sendMail({
-        from: process.env.EMAIL_FROM || 'admin@fzafar.com',
+        from,
         to: recipients,
         subject,
         text,
         html,
       })
-      res.json({ ok: true, to: recipients })
+      res.json({ ok: true, from, to: recipients })
     } catch (err) {
       console.error('Email API error:', err)
       res.status(500).json({ error: 'send failed' })

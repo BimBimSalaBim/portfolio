@@ -112,8 +112,6 @@ export function Page() {
       style={{ backgroundPositionY: yBg }}
     >
 
-      <title>Faizan Zafar</title>
-      
       <header className="relative h-screen flex items-center justify-center overflow-hidden">
         <AnimatedBackgroundComponent />
         <motion.div 

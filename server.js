@@ -1,7 +1,6 @@
 // server.js
 const express = require('express')
 const next = require('next')
-const cors = require('cors')
 const fs = require('fs')
 const path = require('path')
 
@@ -24,8 +23,8 @@ const port = process.env.PORT || 3000
 app.prepare().then(() => {
   const server = express()
 
-  // Enable CORS for all routes
-  server.use(cors())
+  // No global CORS — all API routes are same-origin; external consumers use curl/scripts
+  // (CORS only matters to browsers, and browsers are same-origin here).
 
   // Parse JSON bodies (for POST /api/email)
   server.use(express.json())

@@ -22,6 +22,7 @@ const port = process.env.PORT || 3000
 
 app.prepare().then(() => {
   const server = express()
+  server.disable('x-powered-by')
 
   // No global CORS — all API routes are same-origin; external consumers use curl/scripts
   // (CORS only matters to browsers, and browsers are same-origin here).
